@@ -1,0 +1,11 @@
+{% if alert_list %}
+{% for alert in alert_list %}
++ {{ alert.name }}
+type = {{ alert.type }}
+mailtemplate = {{ alert.mailtemplate }}
+comment = {{ alert.comment|safe }}
+to = {{ alert.to }}
+pattern = {{ alert.pattern|safe }}
+edgetrigger = {{ alert.edgetrigger }}
+{% endfor %}
+{% endif %}

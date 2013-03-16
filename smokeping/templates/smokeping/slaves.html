@@ -1,0 +1,8 @@
+{% if slave_list %}
+{% for slave in slave_list %}
++ {{ slave.name }}
+location = {{ slave.location }}
+display_name = {{ slave.name }}
+color = {{ slave.color}}
+{% endfor %}
+{% endif %}

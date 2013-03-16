@@ -1,0 +1,12 @@
+{% load repeat %}
+
+{% if probe_list %}
+{% for probe in probe_list %}
+{% with level=probe.level %}
+{% repeat level %}+{% endrepeat %} {{probe.name}}
+{% if probe.option %}
+{{ probe.option}}
+{% endif %}
+{% endwith %}
+{% endfor %}
+{% endif %}

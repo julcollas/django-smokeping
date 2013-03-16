@@ -1,0 +1,7 @@
+{% if parent_list %}
++ hierarchies
+{% for parent in parent_list %}
+++ {{ parent.name }}
+title = {{ parent.title }}
+{% endfor %}
+{% endif %}

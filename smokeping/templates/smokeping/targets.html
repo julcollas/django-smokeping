@@ -1,0 +1,38 @@
+{% load repeat %}
+{% load counter %}
+{% load custom_tags %}
+
+{% if chart_list %}
+{% if target_list %}
+{% for chart in chart_list %}
+{% with level=chart.level %}
+{% repeat level %}+{% endrepeat %} {{ chart.name }}
+
+menu = {{ chart.menu }}
+title = {{ chart.title }}
+
+{% ++ level %}
+{% for target in target_list %}
+{% if target.chart_id == chart.id  %}
+{% repeat level %}+{% endrepeat %} {{ target.name }}
+
+probe = {{ target.probe.name }}
+{% if target.port %}
+port = {{ target.port }}
+{% endif %}
+host = {{ target.host }}
+menu = {{ target.menu }}
+title = {{ target.title }}
+slaves =  {{ chart.slave.name }}
+parents = {{ target.parent.select_related|tag:target.parent_tag }}
+{% if target.alert.select_related %}
+alerts = {{ target.alert.select_related|join:"," }}
+{% endif %}
+nomasterpoll = {{ target.nomasterpoll|yesno:"yes,no,yes" }}
+ 
+{% endif %}
+{% endfor %}
+{% endwith %}
+{% endfor %}
+{% endif %}
+{% endif %}
