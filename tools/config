@@ -1,0 +1,79 @@
+*** General ***
+
+owner    = Me
+contact  = me@example.com
+mailhost = localhost
+sendmail = /usr/sbin/sendmail
+
+imgcache = /opt/noc/local/cache
+imgurl   = ../smokeping/images
+datadir  = /var/lib/smokeping
+piddir  = /var/run/smokeping
+cgiurl   = http://localhost/smokeping/smokeping.cgi
+
+smokemail = /etc/smokeping/smokemail
+tmail = /etc/smokeping/tmail
+
+syslogfacility = local0
+
+concurrentprobes = yes
+
+*** Alerts ***
+to = me@example.com
+from = me@example.com
+
+@include config.d/alerts.conf
+
+*** Database ***
+
+step     = 60
+pings    = 20
+
+# consfn mrhb steps total
+
+AVERAGE  0.5   1  1008
+AVERAGE  0.5  12  4320
+    MIN  0.5  12  4320
+    MAX  0.5  12  4320
+AVERAGE  0.5 144   720
+    MAX  0.5 144   720
+    MIN  0.5 144   720
+
+*** Presentation ***
+
+template = /etc/smokeping/basepage.html
+
++ overview
+
+width = 1200
+height = 128
+range = 12h
+
++ detail
+
+width = 1200
+height = 320
+unison_tolerance = 2
+
+"Last 3 Hours"    3h
+"Last 30 Hours"   30h
+"Last 10 Days"    10d
+"Last 400 Days"   400d
+
+@include config.d/parents.conf
+
+*** Probes ***
+@include config.d/probes.conf
+
+*** Slaves ***
+secrets = /etc/smokeping/config.d/secrets.conf
+@include config.d/slaves.conf
+
+*** Targets ***
+probe = FPing
+
+menu = Top
+title = Network Latency Grapher
+remark =
+
+@include config.d/targets.conf
