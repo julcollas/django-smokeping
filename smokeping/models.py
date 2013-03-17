@@ -69,11 +69,11 @@ class Target(models.Model):
     host = models.CharField(max_length=50, help_text="IP or hostname")
     probe = TreeForeignKey(Probe, null=True, blank=False)
     port = models.IntegerField(null=True, blank=True, default=None)
-    chart = TreeForeignKey(Chart, null=True, blank=False, help_text="Implicitly defines the slave")
+    chart = TreeForeignKey(Chart, null=True, blank=False, help_text="Implicitly defines the slave.")
     alert = models.ManyToManyField(Alert, default=None, blank=True, null=True)
     parent = models.ManyToManyField(Parent, default=None, blank=True, null=True)
     parent_tag = models.CharField(max_length=20, default=None, blank=True, null=True)
-    nomasterpoll = models.BooleanField(default=True)
+    nomasterpoll = models.BooleanField(default=False, help_text="Use this in a master/slave setup where the master must not poll a particular target.")
 
     def clean(self):
         """
