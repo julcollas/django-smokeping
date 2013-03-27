@@ -1,4 +1,4 @@
-djanggo-smokeping is an app for `Django <https://www.djangoproject.com/>`_ to configure your `Smokeping <http://oss.oetiker.ch/smokeping/>`_ installation.
+django-smokeping is an app for `Django <https://www.djangoproject.com/>`_ to configure your `Smokeping <http://oss.oetiker.ch/smokeping/>`_ installation.
 
 Dependencies
 -----------
