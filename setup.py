@@ -20,7 +20,7 @@ setup(
     install_requires=['django-mptt>=0.5.5'],
     classifiers = [
         'Environment :: Web Environment',
-        'License :: OSI Approved :: BSD License',
+        'License :: OSI Approved :: GNU License',
         'Framework :: Django',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Programming Language :: Python',

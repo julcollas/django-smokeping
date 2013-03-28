@@ -23,8 +23,12 @@ port = {{ target.port }}
 host = {{ target.host }}
 menu = {{ target.menu }}
 title = {{ target.title }}
+{% if chart.slave %}
 slaves =  {{ chart.slave.name }}
+{% endif %}
+{% if target.parent.select_related %}
 parents = {{ target.parent.select_related|tag:target.parent_tag }}
+{% endif %}
 {% if target.alert.select_related %}
 alerts = {{ target.alert.select_related|join:"," }}
 {% endif %}
