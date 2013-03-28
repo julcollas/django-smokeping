@@ -39,7 +39,7 @@ class Chart(MPTTModel):
     name = models.CharField(max_length=100)
     menu = models.CharField(max_length=100)
     title = models.CharField(max_length=200)
-    slave = models.ForeignKey(Slave)
+    slave = models.ForeignKey(Slave, null=True, blank=True)
     parent = TreeForeignKey('self', null=True, blank=True, related_name='children')
 
     class MPTTMeta:
