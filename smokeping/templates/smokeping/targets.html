@@ -33,7 +33,7 @@ parents = {{ target.parent.select_related|tag:target.parent_tag }}
 alerts = {{ target.alert.select_related|join:"," }}
 {% endif %}
 nomasterpoll = {{ target.nomasterpoll|yesno:"yes,no,yes" }}
- 
+
 {% endif %}
 {% endfor %}
 {% endwith %}
