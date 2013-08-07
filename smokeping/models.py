@@ -67,7 +67,7 @@ class Alert(models.Model):
     name = models.CharField(max_length=100, unique=True, help_text="^[-_0-9a-zA-Z]+$",
                             validators=[RegexValidator(regex=name_regex)])
     type = models.CharField(max_length=100, unique=False)
-    to = models.EmailField()
+    to = models.CharField(max_length=100, unique=False)
     mailtemplate = models.CharField(max_length=100)
     comment = models.CharField(max_length=100)
     pattern = models.CharField(max_length=100, unique=False)
@@ -89,7 +89,7 @@ class Target(models.Model):
     chart = TreeForeignKey(Chart, null=True, blank=False, help_text="Implicitly defines the slave.")
     alert = models.ManyToManyField(Alert, default=None, blank=True, null=True)
     parent = models.ManyToManyField(Parent, default=None, blank=True, null=True)
-    parent_tag = models.CharField(max_length=20, default=None, blank=True, null=True)
+    parent_tag = models.CharField(max_length=100, default=None, blank=True, null=True)
     nomasterpoll = models.BooleanField(default=False,
                                        help_text="Used in a master/slave setup to prevent master form polling a particular target.")
 
