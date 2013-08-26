@@ -18,6 +18,7 @@ class TargetAdmin(admin.ModelAdmin):
     list_display = ['menu', 'host', 'probe', 'port', 'chart', 'parent_tag', 'get_alert', 'get_parent']
     list_filter = ['probe', 'chart']
     search_fields = ['host', 'port', 'menu']
+    save_as = True
 
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size':'50'})},
@@ -30,6 +31,7 @@ class AlertAdmin(admin.ModelAdmin):
     '''
     list_display = ['name', 'pattern', 'type']
     list_filter = ['type']
+    save_as = True
 
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size':'50'})},
@@ -42,6 +44,7 @@ class ChartAdmin(MPTTModelAdmin):
     '''
     list_display = ['name', 'slave']
     list_filter = ['slave']
+    save_as = True
 
 
 class ProbeAdmin(MPTTModelAdmin):
@@ -49,6 +52,7 @@ class ProbeAdmin(MPTTModelAdmin):
     ProbeAdmmin Class with display settings
     '''
     list_display = ['name', 'port']
+    save_as = True
 
 
 class SlaveAdmin(admin.ModelAdmin):
@@ -56,6 +60,7 @@ class SlaveAdmin(admin.ModelAdmin):
     ProbeAdmmin Class with display settings
     '''
     list_display = ['name', 'location']
+    save_as = True
 
 
 admin.site.register(Parent)
