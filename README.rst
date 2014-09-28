@@ -1,9 +1,20 @@
 django-smokeping is an app for `Django <https://www.djangoproject.com/>`_ to configure your `Smokeping <http://oss.oetiker.ch/smokeping/>`_ installation.
 
 Dependencies
------------
+------------
 
 - django-mptt
+
+Installation
+------------
+
+Install the extension with `pip` ::
+
+    $ pip install git+git://github.com/julcollas/django-smokeping.git
+
+or alternatively if you don't have pip installed ::
+
+    $ python setup.py install
 
 Quick start
 -----------
@@ -34,3 +45,14 @@ Quick start
 
 6. Visit http://127.0.0.1:8000/smokeping/ to view your configuration exported.
 
+Usage
+-----
+
+1. You will find a config file example in "tools".
+  Put it in your smokeping directory "/etc/smokeping/"
+
+2. You will find a get_config.py script example in "tools".
+  Put it in your smokeping directory "/etc/smokeping/config.d/"
+
+3. You will find a smokeping-get-config.cron example in "tools".
+  Put it in your cron directory "/etc/cron.d/"

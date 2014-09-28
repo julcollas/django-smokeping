@@ -1,0 +1,5 @@
+# Get Config from SmokePing Admin
+*/5 * * * * root cd /etc/smokeping/config.d && python get_config.py http://127.0.0.1:8080/smokeping >/dev/null 2>&1
+
+# Reload SmokePing
+*/20 * * * * root service smokeping reload >/dev/null 2>&1
