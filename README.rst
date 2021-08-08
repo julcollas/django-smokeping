@@ -49,7 +49,7 @@ Quick start
 Docker && Compose
 -----
 
-```
+```console
 $ docker build . -t smokepingadmin
 ```
 
