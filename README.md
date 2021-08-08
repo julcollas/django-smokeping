@@ -52,7 +52,7 @@ services:
 
   smokepingadmin_sync:
     image: smokepingadmin
-    command: bash -c "python manage.py syncdb --noinput && echo \"from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@demo.fr', 'password')\" | python manage.py shell"
+    command: bash -c "python manage.py syncdb --noinput"
     volumes:
       - ./smokepingadmin/db/:/app/demo/db
 ```
