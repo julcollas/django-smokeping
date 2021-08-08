@@ -45,6 +45,32 @@ Quick start
 
 6. Visit http://127.0.0.1:8000/smokeping/ to view your configuration exported.
 
+
+Docker && Compose
+-----
+
+```
+$ docker build . -t smokepingadmin
+```
+
+```yaml
+version: "3"
+services:
+  smokepingadmin:
+    container_name: smokepingadmin
+    image: smokepingadmin
+    volumes:
+      - ./smokepingadmin/db/:/app/demo/db
+    depends_on:
+      - smokepingadmin_sync
+
+  smokepingadmin_sync:
+    image: smokepingadmin
+    command: bash -c "python manage.py syncdb --noinput && echo \"from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@demo.fr', 'password')\" | python manage.py shell"
+    volumes:
+      - ./smokepingadmin/db/:/app/demo/db
+```
+
 Usage
 -----
 
